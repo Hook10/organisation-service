@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface OrganizationMapper {
 
-  OrganizationDto toDto(Organization organization);
+  OrganizationDto organizationToOrganizationDto(Organization organization);
 
-  Organization toEntity(OrganizationDto organizationDto);
+  Organization organizationDtoToOrganization(OrganizationDto organizationDto);
 
 }
