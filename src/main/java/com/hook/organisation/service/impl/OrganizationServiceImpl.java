@@ -18,13 +18,13 @@ public class OrganizationServiceImpl implements OrganizationService {
   @Override
   public OrganizationDto saveOrganization(OrganizationDto organizationDto) {
     // convert OrganizationDto to Organization entity
-    Organization organization = organizationMapper.organizationDtoToOrganization(organizationDto);
+    Organization organization = organizationMapper.toEntity(organizationDto);
 
     // save to db
     Organization savedOrganization = organizationRepository.save(organization);
 
     // return savedOrganization converted to dto
-    return organizationMapper.organizationToOrganizationDto(savedOrganization);
+    return organizationMapper.toDto(savedOrganization);
   }
 
 
@@ -33,7 +33,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     Organization organization = organizationRepository.findByOrganizationCode(
         organizationCode);
-    return organizationMapper.organizationToOrganizationDto(organization);
+    return organizationMapper.toDto(organization);
 
   }
 }
